@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+.containerForm{
+    display: flex;
+    justify-content: center;
+     border: 1px solid black;
+    padding: 50px;
+    
+}
+
+.containerCard{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    
+}
+
+form{
+    width: 800px;
+    display: flex;
+   
+}
+
+.containerLabel{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.inputGroup{
+    display: flex;
+    
+}
+
+.card{
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+h1{
+    font-size: 25px;
+}
+
+.btnGroup{
+    display: flex;
+    gap: 5px;
+}
+button{
+    border: 1px solid black;
+    padding: 6px;
+    border-radius: 6px;
+}
