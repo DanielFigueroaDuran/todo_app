@@ -1,8 +1,13 @@
 
 
-const TagsMenu = () => {
+const TagsMenu = ({ element }) => {
+    //console.log(element)
     return (
-        <div>TagsMenu</div>
+        <>
+            <div className="bg-blue-600 p-3  w-15 rounded shadow">
+                <button>{element}</button>
+            </div>
+        </>
     )
 }
 
