@@ -5,7 +5,7 @@ const TagsMenu = ({ element }) => {
     return (
         <>
             <div className="bg-blue-600 p-3  w-15 rounded shadow">
-                <button>{element}</button>
+                <button># {element}</button>
             </div>
         </>
     )

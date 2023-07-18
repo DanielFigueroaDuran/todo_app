@@ -1,12 +1,39 @@
 import { useState } from "react";
 
-const ToDo = ({ element, setTasks }) => {
+const ToDo = ({ element, setTasks, setTags, setCopytaks, copytaks }) => {
     const [done, setDone] = useState(true);
 
-    // console.log(done);
-    const handleDelete = (event) => {
-        event.preventDefault();
-        setTasks(prev => prev.filter(task => task.id !== element.id))
+
+    const handleDelete = () => {
+
+        // setTasks(prev => prev.filter(task => task.id !== element.id))
+        setTasks(prev => {
+            const tagPrev = prev.map(obj => obj.tag)
+            const notRepeatPrev = [...new Set(tagPrev)]
+            console.log(notRepeatPrev);
+            const array = copytaks.filter(objCopy => objCopy.id !== element.id);
+            const array2 = array.map((tag => tag.tag));
+            const notRepeat = [...new Set(array2)] // quita los repetidos
+            console.log(notRepeat)
+            console.log(array);
+            setTags(["all", ...notRepeat]);
+            if (notRepeat.length == 0) {
+                setCopytaks([])
+            } else {
+                setCopytaks(array)
+            }
+
+            return notRepeatPrev.length > 1 ? array : array.filter(element => element.tag == notRepeatPrev[0])
+        })
+
+
+        // setTags(prev => prev.filter(tag => {
+
+        //     // console.log(tag);
+        //     // console.log(element.tag);
+        //     // console.log(prev);
+        //     return tag !== element.tag
+        // }))
 
     }
 

@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import TodoList from './TodoList';
 
-const Form = ({ setTasks, setTags }) => {
+const Form = ({ setTasks, setTags, setCopytaks }) => {
 
     const [title, setTitle] = useState({ priority: "low" });
-    const [startDate, setStartDate] = useState(new Date());
 
     //console.log(task);
 
@@ -21,10 +20,21 @@ const Form = ({ setTasks, setTags }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         // console.log(title);
+
+        const randomId = Math.floor(Math.random() * 1000);
+
         setTasks(prev =>
             [
                 ...prev,
-                { ...title, id: Math.floor(Math.random() * 1000) },
+                { ...title, id: randomId },
+
+            ]
+        )
+
+        setCopytaks(prev =>
+            [
+                ...prev,
+                { ...title, id: randomId },
 
             ]
         )
@@ -47,8 +57,8 @@ const Form = ({ setTasks, setTags }) => {
 
     return (
         <>
-            <div className='block bg-slate-50 p-6 rounded-xl shadow-md shadow-slate-800 w-90'>
-                <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
+            <div className='block bg-slate-50 p-6 rounded-xl shadow-md shadow-slate-800 w-[400px]'>
+                <form className='flex flex-col gap-4 ' onSubmit={handleSubmit}>
                     <h2 className='text-blue-700 text-3xl font-semibold my-4 text-center'>TodoApp</h2>
 
                     <div className='flex flex-col ' >
@@ -81,7 +91,6 @@ const Form = ({ setTasks, setTags }) => {
                     </div>
 
                     <div>
-
                         <label htmlFor="dealine">Deadline:</label>
                         <input type="date" name='date' value={title.date || ''} onChange={handleChange} />
                     </div>
@@ -95,11 +104,8 @@ const Form = ({ setTasks, setTags }) => {
                         type="submit"
                         value="Create"
                     />
-
                 </form>
             </div>
-
-
         </>
     )
 }

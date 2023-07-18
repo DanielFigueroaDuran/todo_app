@@ -2,7 +2,7 @@ import TagsMenu from "./TagsMenu";
 import ToDo from "./ToDo";
 
 
-const TodoList = ({ tasks, setTasks }) => {
+const TodoList = ({ tasks, setTasks, setTags, setCopytaks, copytaks }) => {
 
     //console.log(tasks);
 
@@ -15,7 +15,7 @@ const TodoList = ({ tasks, setTasks }) => {
             <div className="flex gap-5 flex-wrap">
                 {
                     tasks.map((element, i) => (
-                        <ToDo element={element} key={i} setTasks={setTasks} />
+                        <ToDo element={element} key={i} setTasks={setTasks} setTags={setTags} setCopytaks={setCopytaks} copytaks={copytaks} />
                     ))
                 }
             </div>
